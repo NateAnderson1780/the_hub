@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'faraday'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
