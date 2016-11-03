@@ -8,5 +8,7 @@ RSpec.feature "visitor can visit the homepage" do
       expect(page).to have_link("Login")
       expect(page).to have_link("Sign Up")
     end
+
+    expect(page).to have_content("Welcome to the Hub")
   end
 end
