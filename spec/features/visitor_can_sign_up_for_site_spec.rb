@@ -17,6 +17,6 @@ RSpec.feature "visitor can sign up for the site" do
 
     click_button "Create My Account"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/dashboard')
   end
 end
