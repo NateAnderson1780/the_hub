@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'faraday'
 gem 'faker'
+gem 'omniauth-twitter'
 
 
 # Use Capistrano for deployment

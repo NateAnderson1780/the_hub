@@ -1,8 +1,8 @@
 <h1>Login to Your Account</h1>
 
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email_address %>
-  <%= f.text_field :email_address %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 
   <%= f.label :password %>
   <%= f.password_field :password %>

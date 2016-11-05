@@ -5,8 +5,8 @@ class User < ApplicationRecord
     where(uid: auth_info[:uid]).first_or_create do |new_user|
       new_user.uid                = auth_info.uid
       new_user.password           = auth_info.uid
-      new_user.name               = auth_info.extra.raw_info.name
-      new_user.username           = auth_info.extra.raw_info.screen_name
+      new_user.first_name         = auth_info.extra.raw_info.name.split.first
+      new_user.last_name          = auth_info.extra.raw_info.name.split.last
       new_user.oauth_token        = auth_info.credentials.token
       new_user.oauth_token_secret = auth_info.credentials.secret
     end

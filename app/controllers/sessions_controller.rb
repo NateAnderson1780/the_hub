@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      user = User.find_by(email_address: params[:session][:email_address])
+      user = User.find_by(username: params[:session][:username])
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
         redirect_to dashboard_path
       else
-        flash.now[:danger] = "Email and/or Password is invalid, please try again."
+        flash.now[:danger] = "Username and/or Password is invalid, please try again."
         render :new
       end
     end
