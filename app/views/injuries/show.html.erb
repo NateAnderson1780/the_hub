@@ -1,0 +1,15 @@
+<h1><%= @team.name %> Injuries</h1>
+
+<ul>
+  <% @injuries.each do |injury| %>
+    <li>
+      <%= injury.name %></br>
+      Position: <%= injury.position %></br>
+      Jersey Number: <%= injury.jersey_number %></br>
+      Comment: <%= injury.comment %></br>
+      Status: <%= injury.status %></br>
+      Start Date: <%= injury.start_date %></br>
+      Update Date: <%= injury.update_date %>
+    </li></br></br>
+  <% end %>
+</ul>

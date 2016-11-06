@@ -3,7 +3,7 @@
 <%= form_for(:userteam, url: userteams_path) do |f| %>
   <select name="team_id">
     <%= @teams.each do |team| %>
-      <option value="<%= team.id %>"><%= team.name %></option>
+      <option value="<%= team.id %>" class="<%= team.name %>"><%= team.name %></option>
     <% end %>
   </select>
   <%= f.submit "Add Team" %>
@@ -12,5 +12,6 @@
 <% @userteams.each do |userteam| %>
   Team: <%= userteam.name %></br>
   <%= link_to "Roster", roster_path(userteam.id) %>
-  <%= link_to "Injuries", roster_path(userteam.id) %>
+  <%= link_to "Injuries", injury_path(userteam.id) %>
+  <%= link_to "Standings", standings_path(userteam.id) %></br></br>
 <% end %>
