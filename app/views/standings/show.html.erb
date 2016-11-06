@@ -1,0 +1,16 @@
+<h1>NBA <%= @division_name %> Division Standings</h1>
+
+<ol>
+  <% @standings.each do |team_standing| %>
+    <li>
+      <% if team_standing.name == @team.name %>
+      <b><%= team_standing.name %></b></br></br>
+      <% else %>
+      <%= team_standing.name %></br></br>
+      <% end %>
+      Record: <%= team_standing.record %></br>
+      Games Behind: <%= team_standing.games_behind %></br>
+      Streak: <%= team_standing.streak %>
+    </li></br></br>
+  <% end %>
+</ol>
