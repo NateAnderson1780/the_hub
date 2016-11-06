@@ -12,5 +12,6 @@
 <% @userteams.each do |userteam| %>
   Team: <%= userteam.name %></br>
   <%= link_to "Roster", roster_path(userteam.id) %>
-  <%= link_to "Injuries", injury_path(userteam.id) %></br></br>
+  <%= link_to "Injuries", injury_path(userteam.id) %>
+  <%= link_to "Standings", standings_path(userteam.id) %></br></br>
 <% end %>
