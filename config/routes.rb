@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   get 'roster/:team_id', to: "rosters#show", as: 'roster'
   get 'injuries/:team_id', to: "injuries#show", as: 'injury'
+  get 'standings/:team_id', to: "standings#show", as: 'standings'
 end
