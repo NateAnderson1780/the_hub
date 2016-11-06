@@ -1,0 +1,15 @@
+<h1>Login to Your Account</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Login" %>
+
+<% end %>
+
+<p>Not Registered? <%= link_to "Create Account", signup_path %><br>
+<%= link_to 'Login With Twitter',  twitter_login_path, class: "btn btn-info" %>
