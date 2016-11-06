@@ -1,0 +1,16 @@
+<h1>Your Teams</h1>
+
+<%= form_for(:userteam, url: userteams_path) do |f| %>
+  <select name="team_id">
+    <%= @teams.each do |team| %>
+      <option value="<%= team.id %>"><%= team.name %></option>
+    <% end %>
+  </select>
+  <%= f.submit "Add Team" %>
+<% end %></br></br>
+
+<% @userteams.each do |userteam| %>
+  Team: <%= userteam.name %></br>
+  <%= link_to "Roster", roster_path(userteam.id) %>
+  <%= link_to "Injuries", roster_path(userteam.id) %>
+<% end %>

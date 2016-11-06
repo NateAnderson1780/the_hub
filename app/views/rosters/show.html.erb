@@ -1,0 +1,16 @@
+<h1><%= @team.name %> Roster</h1>
+
+<ul>
+  <% @players.each do |player| %>
+    <li>
+      <%=  player.name %></br>
+      Birthdate: <%= player.birthdate %></br>
+      Height: <%= player.height %></br>
+      Weight: <%= player.weight %></br>
+      Position: <%= player.position %></br>
+      Jersey Number: <%= player.jersey_number %></br>
+      Years Experience: <%= player.experience %></br>
+      College: <%= player.college %>
+    </li></br>
+  <% end %>
+</ul>
