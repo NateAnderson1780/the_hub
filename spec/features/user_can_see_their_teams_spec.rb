@@ -7,8 +7,14 @@ RSpec.feature "user can add a team" do
     login(user)
 
     click_link "Teams"
-    expect(current_path).to eq('teams')
+    expect(current_path).to eq('/teams')
 
-    click_link "Add a Team"
+    expect(page).not_to have_content("Team: Chicago Bulls")
+
+    select("Chicago Bulls", :class => "Chicago Bulls")
+    click_button "Add Team"
+
+    expect(current_path).to eq('/teams')
+    expect(page).to have_content("Team: Chicago Bulls")
   end
 end
