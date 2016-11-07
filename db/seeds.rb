@@ -145,6 +145,30 @@ class Seed
                                                                    conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
 
   end
+
+  def self.generate_players
+    players = ["Jimmy Butler",
+               "Steph Curry",
+               "Lebron James",
+               "Russell Westbrook",
+               "Kristaps Porzingis",
+               "Klay Thompson"]
+
+    players.each do |player|
+      Player.create(name: player)
+    end
+    puts "Created Players"
+    assign_codes_to_players
+  end
+
+  def self.assign_codes_to_players
+    Player.find_by(name: "Jimmy Butler").update_attribute(:player_code, '0e163d44-67a7-4107-9421-5333600166bb')
+    Player.find_by(name: "Steph Curry").update_attribute(:player_code, '8ec91366-faea-4196-bbfd-b8fab7434795')
+    Player.find_by(name: "Klay Thompson").update_attribute(:player_code, '4e152a06-673e-4701-b115-aa7e2cd00d2d')
+    Player.find_by(name: "Lebron James").update_attribute(:player_code, '0afbe608-940a-4d5d-a1f7-468718c67d91')
+    Player.find_by(name: "Russell Westbrook").update_attribute(:player_code, '74a45eed-f2b0-4886-ae71-d04cf7d59528')
+    Player.find_by(name: "Kristaps Porzingis").update_attribute(:player_code, '3c5901ef-af1d-441d-aeed-8e0a93cead49')
+  end
 end
 
 Seed.start
