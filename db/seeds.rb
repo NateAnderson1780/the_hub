@@ -98,13 +98,13 @@ class Seed
     Team.find_by(name: "Philadelphia 76ers").update_attributes(team_code: '583ec87d-fb46-11e1-82cb-f4ce4684ea4c',
                                                                division_code: '582d6502-9a93-4a8d-8785-69374d732875',
                                                                conference_code: '3960cfac-7361-4b30-bc25-8d393de6f62f')
-    Team.find_by(name: "LA Clippers").update_attributes(team_code: '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c',
+    Team.find_by(name: "Los Angeles Clippers").update_attributes(team_code: '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c',
                                                         division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                         conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
     Team.find_by(name: "Golden State Warriors").update_attributes(team_code: '583ec825-fb46-11e1-82cb-f4ce4684ea4c',
                                                                   division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                                   conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
-    Team.find_by(name: "LA Lakers").update_attributes(team_code: '583ecae2-fb46-11e1-82cb-f4ce4684ea4c',
+    Team.find_by(name: "Los Angeles Lakers").update_attributes(team_code: '583ecae2-fb46-11e1-82cb-f4ce4684ea4c',
                                                       division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                       conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
     Team.find_by(name: "Phoenix Suns").update_attributes(team_code: '583ecfa8-fb46-11e1-82cb-f4ce4684ea4c',
