@@ -9,7 +9,9 @@
 class Seed
   def self.start
     Team.delete_all
+    Userteam.delete_all
     Player.delete_all
+    Userplayer.delete_all
     generate_teams
     generate_players
   end
