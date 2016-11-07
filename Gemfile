@@ -27,6 +27,7 @@ gem 'figaro'
 gem 'faraday'
 gem 'faker'
 gem 'omniauth-twitter'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 # Use Capistrano for deployment
