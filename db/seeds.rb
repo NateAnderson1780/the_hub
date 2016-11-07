@@ -9,7 +9,9 @@
 class Seed
   def self.start
     Team.delete_all
+    Player.delete_all
     generate_teams
+    generate_players
   end
 
   def self.generate_teams
@@ -25,8 +27,8 @@ class Seed
              "Golden State Warriors",
              "Houston Rockets",
              "Indiana Pacers",
-             "LA Clippers",
-             "LA Lakers",
+             "Los Angeles Clippers",
+             "Los Angeles Lakers",
              "Memphis Grizzlies",
              "Miami Heat",
              "Milwaukee Bucks",
@@ -47,10 +49,10 @@ class Seed
       Team.create(name: team)
     end
     puts "Created Teams"
-    assign_codes_to_cities
+    assign_codes_to_teams
   end
 
-  def self.assign_codes_to_cities
+  def self.assign_codes_to_teams
     Team.find_by(name: "Charlotte Hornets").update_attributes(team_code: '583ec97e-fb46-11e1-82cb-f4ce4684ea4c',
                                                               division_code: '54dc7348-c1d2-40d8-88b3-c4c0138e085d',
                                                               conference_code: '3960cfac-7361-4b30-bc25-8d393de6f62f')
