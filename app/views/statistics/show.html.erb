@@ -1,0 +1,32 @@
+<h1> <%= @player.name %> Statistics</h1>
+
+<table>
+   <tr>
+    <th>Team</th>
+    <th>Games Played</th>
+    <th>Games Started</th>
+    <th>Minutes</th>
+    <th>Points</th>
+    <th>Rebounds</th>
+    <th>Assists</th>
+    <th>Turnovers</th>
+    <th>Steals</th>
+    <th>FG%</th>
+    <th>3P%</th>
+    <th>FT%</th>
+  </tr>
+  <tr>
+   <th><%= @statistics.team %></th>
+   <th><%= @statistics.games_played %></th>
+   <th><%= @statistics.games_started %></th>
+   <th><%= @statistics.minutes_per_game %></th>
+   <th><%= @statistics.points_per_game %></th>
+   <th><%= @statistics.rebound_average %></th>
+   <th><%= @statistics.assist_average %></th>
+   <th><%= @statistics.turnovers %></th>
+   <th><%= @statistics.steals %></th>
+   <th><%= @statistics.field_goal_percentage %></th>
+   <th><%= @statistics.three_point_percentage %></th>
+   <th><%= @statistics.free_throw_percentage %></th>
+  </tr>
+</table>
