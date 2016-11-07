@@ -9,7 +9,9 @@
 class Seed
   def self.start
     Team.delete_all
+    Player.delete_all
     generate_teams
+    generate_players
   end
 
   def self.generate_teams
@@ -25,8 +27,8 @@ class Seed
              "Golden State Warriors",
              "Houston Rockets",
              "Indiana Pacers",
-             "LA Clippers",
-             "LA Lakers",
+             "Los Angeles Clippers",
+             "Los Angeles Lakers",
              "Memphis Grizzlies",
              "Miami Heat",
              "Milwaukee Bucks",
@@ -47,10 +49,10 @@ class Seed
       Team.create(name: team)
     end
     puts "Created Teams"
-    assign_codes_to_cities
+    assign_codes_to_teams
   end
 
-  def self.assign_codes_to_cities
+  def self.assign_codes_to_teams
     Team.find_by(name: "Charlotte Hornets").update_attributes(team_code: '583ec97e-fb46-11e1-82cb-f4ce4684ea4c',
                                                               division_code: '54dc7348-c1d2-40d8-88b3-c4c0138e085d',
                                                               conference_code: '3960cfac-7361-4b30-bc25-8d393de6f62f')
@@ -96,13 +98,13 @@ class Seed
     Team.find_by(name: "Philadelphia 76ers").update_attributes(team_code: '583ec87d-fb46-11e1-82cb-f4ce4684ea4c',
                                                                division_code: '582d6502-9a93-4a8d-8785-69374d732875',
                                                                conference_code: '3960cfac-7361-4b30-bc25-8d393de6f62f')
-    Team.find_by(name: "LA Clippers").update_attributes(team_code: '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c',
+    Team.find_by(name: "Los Angeles Clippers").update_attributes(team_code: '583ecdfb-fb46-11e1-82cb-f4ce4684ea4c',
                                                         division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                         conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
     Team.find_by(name: "Golden State Warriors").update_attributes(team_code: '583ec825-fb46-11e1-82cb-f4ce4684ea4c',
                                                                   division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                                   conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
-    Team.find_by(name: "LA Lakers").update_attributes(team_code: '583ecae2-fb46-11e1-82cb-f4ce4684ea4c',
+    Team.find_by(name: "Los Angeles Lakers").update_attributes(team_code: '583ecae2-fb46-11e1-82cb-f4ce4684ea4c',
                                                       division_code: 'f074cb3e-90cf-42e1-8067-cdbcd99ec230',
                                                       conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
     Team.find_by(name: "Phoenix Suns").update_attributes(team_code: '583ecfa8-fb46-11e1-82cb-f4ce4684ea4c',
@@ -142,6 +144,30 @@ class Seed
                                                                    division_code: '12bf14ba-eb16-4c6f-8275-e801b6947c1e',
                                                                    conference_code: '7fe7e212-de01-4f8f-a31d-b9f0a95731e3')
 
+  end
+
+  def self.generate_players
+    players = ["Jimmy Butler",
+               "Steph Curry",
+               "Lebron James",
+               "Russell Westbrook",
+               "Kristaps Porzingis",
+               "Klay Thompson"]
+
+    players.each do |player|
+      Player.create(name: player)
+    end
+    puts "Created Players"
+    assign_codes_to_players
+  end
+
+  def self.assign_codes_to_players
+    Player.find_by(name: "Jimmy Butler").update_attribute(:player_code, '0e163d44-67a7-4107-9421-5333600166bb')
+    Player.find_by(name: "Steph Curry").update_attribute(:player_code, '8ec91366-faea-4196-bbfd-b8fab7434795')
+    Player.find_by(name: "Klay Thompson").update_attribute(:player_code, '4e152a06-673e-4701-b115-aa7e2cd00d2d')
+    Player.find_by(name: "Lebron James").update_attribute(:player_code, '0afbe608-940a-4d5d-a1f7-468718c67d91')
+    Player.find_by(name: "Russell Westbrook").update_attribute(:player_code, '74a45eed-f2b0-4886-ae71-d04cf7d59528')
+    Player.find_by(name: "Kristaps Porzingis").update_attribute(:player_code, '3c5901ef-af1d-441d-aeed-8e0a93cead49')
   end
 end
 
