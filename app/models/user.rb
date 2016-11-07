@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :userteams
   has_many :teams, through: :userteams
+  has_many :userplayers
+  has_many :players, through: :userplayers
 
   def self.from_omniauth(auth_info)
     where(uid: auth_info[:uid]).first_or_create do |new_user|
