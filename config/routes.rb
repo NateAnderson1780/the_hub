@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "dashboard#index"
 
   resources :users, only: [:new, :create]
-  resources :userteams, only: [:create]
+  resources :userteams, only: [:create, :destroy]
 
   get 'teams', to: "teams#index"
   get 'players', to: "players#index"
