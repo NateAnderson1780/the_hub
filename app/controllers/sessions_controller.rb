@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to dashboard_path
       else
-        flash.now[:danger] = "Username and/or Password is invalid, please try again."
+        flash.now[:notice] = "Username and/or Password is invalid, please try again."
         render :new
       end
     end
