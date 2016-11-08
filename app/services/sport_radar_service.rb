@@ -1,11 +1,11 @@
 class SportRadarService
   def initialize
-    @conn = Faraday.new(url: "http://api.sportradar.us/nba-t3/")
+    @base_url = "http://api.sportradar.us/nba-t3/"
   end
 
   def team_injuries(team_code)
-    response = conn.get do |req|
-      req.url 'league/injuries.json'
+    response = client.get do |req|
+      req.url (base_url + "league/injuries.json")
       req.params['api_key'] = ENV['sport_radar_api_key']
     end
     injuries = parse(response)
