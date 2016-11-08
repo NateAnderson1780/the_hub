@@ -3,6 +3,12 @@ class RosterPlayer
     @roster_player_data = raw_roster_player
   end
 
+  def self.by_team(team_code)
+    SportRadarService.new.team_roster(team_code).map do |raw_player|
+      RosterPlayer.new(raw_player)
+    end
+  end
+
   def name
     roster_player_data[:full_name]
   end
