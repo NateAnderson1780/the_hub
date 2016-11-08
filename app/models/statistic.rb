@@ -29,15 +29,15 @@ class Statistic
   end
 
   def field_goal_percentage
-    @statistic_data[:total][:field_goals_pct]
+    @statistic_data[:total][:field_goals_pct] * 100
   end
 
   def three_point_percentage
-    @statistic_data[:total][:three_points_pct]
+    @statistic_data[:total][:three_points_pct] * 100
   end
 
   def free_throw_percentage
-    @statistic_data[:total][:free_throws_pct]
+    @statistic_data[:total][:free_throws_pct] * 100
   end
 
   def rebound_average
