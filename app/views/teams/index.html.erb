@@ -13,6 +13,7 @@
   Team: <%= userteam.name %></br>
   <%= link_to "Roster", roster_path(userteam.id) %>
   <%= link_to "Injuries", injury_path(userteam.id) %>
-  <%= link_to "Standings", standings_path(userteam.id) %></br></br>
+  <%= link_to "Standings", standings_path(userteam.id) %>
+  <%= link_to "Schedule", schedules_path(userteam.id) %></br></br>
   <%= link_to "Delete Team", userteam_path(userteam), :method => :delete %></br></br>
 <% end %>

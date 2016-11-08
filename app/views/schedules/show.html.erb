@@ -1,0 +1,8 @@
+<h1><%= @team.name %> Schedule</h1>
+
+<% @games.each do |game| %>
+  Venue: <%= game.venue %></br>
+  Home Team: <%= game.home_team %></br>
+  Away Team: <%= game.away_team %></br>
+  Date: <%= game.date %></br></br>
+<% end %>
