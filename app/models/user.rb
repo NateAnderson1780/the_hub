@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :teams, through: :userteams
   has_many :userplayers
   has_many :players, through: :userplayers
+  validates :first_name, presence: true, length: { minimum: 2 }
+  validates :last_name, presence: true, length: { minimum: 2 }
+  validates :username, presence: true, length: { minimum: 2 }
 
   def self.from_omniauth(auth_info)
     where(uid: auth_info[:uid]).first_or_create do |new_user|
