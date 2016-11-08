@@ -3,6 +3,11 @@ class Statistic
     @statistic_data = raw_statistics
   end
 
+  def self.by_player(player_code)
+    raw_statistics = SportRadarService.new.player_statistics(player_code)
+    Statistic.new(raw_statistics)
+  end
+
   def team
     "#{@statistic_data[:market]} #{@statistic_data[:name]}"
   end
