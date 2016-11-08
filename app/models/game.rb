@@ -1,11 +1,24 @@
 class Game
   def initialize(raw_game)
-    @game = raw_game
+    @game_data = raw_game
   end
 
-  def location
-    "#{@game[:venue][:name]}, #{@game[:venue][:city]}, #{@game[:venue][:state]}"
+  def venue
+    "#{@game_data[:venue][:name]}, #{@game_data[:venue][:city]}, #{@game_data[:venue][:state]}"
   end
 
+  def home_team
+    @game_data[:home][:name]
+  end
 
+  def away_team
+    @game_data[:away][:name]
+  end
+
+  def date
+    @game_data[:scheduled]
+  end
+
+  private
+   attr_reader :game_data
 end
