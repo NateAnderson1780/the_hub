@@ -3,6 +3,12 @@ class Injury
     @injury_data  = raw_team
   end
 
+  def self.by_team(team_code)
+    SportRadarService.new.team_injuries(team_code).map do |raw_player|
+      Injury.new(raw_player)
+    end
+  end
+
   def name
     injury_data[:full_name]
   end
