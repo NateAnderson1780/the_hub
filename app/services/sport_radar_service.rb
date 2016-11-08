@@ -37,42 +37,50 @@ class SportRadarService
   end
 
   def team_schedule(team_code)
-    response = conn.get do |req|
-      req.url 'games/2016/REG/schedule.json'
+    response = client.get do |req|
+      req.url (base_url + 'games/2016/REG/schedule.json')
       req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:games]
   end
 
   def player_statistics(player_code)
-    response = conn.get do |req|
-      req.url "players/#{player_code}/profile.json"
+    response = client.get do |req|
+      req.url (base_url + "players/#{player_code}/profile.json")
       req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:seasons].first[:teams].first
   end
-  
+
   def player_biography(player_code)
-    response = conn.get do |req|
-      req.url "players/#{player_code}/profile.json"
-      req.params['api_key'] = ENV['sport_radar_api_key']
+    response = client.get do |req|
+      req.url (base_url + "players/#{player_code}/profile.json")
+      # req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)
   end
 
   def player_draft_info(player_code)
-    response = conn.get do |req|
-      req.url "players/#{player_code}/profile.json"
-      req.params['api_key'] = ENV['sport_radar_api_key']
+    response = client.get do |req|
+      req.url (base_url + "players/#{player_code}/profile.json")
+      # req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:draft]
   end
 
   private
-    attr_reader :conn
+    attr_reader :base_url
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def client
+    Faraday.new do |builder|
+      builder.use :http_cache, store: Rails.cache
+      builder.adapter Faraday.default_adapter
+      builder.params['api_key'] = ENV['sport_radar_api_key']
+    end
   end
 
 end
