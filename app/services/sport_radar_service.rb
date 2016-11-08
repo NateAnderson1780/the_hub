@@ -15,16 +15,16 @@ class SportRadarService
   end
 
   def team_roster(team_code)
-    response = conn.get do |req|
-      req.url "teams/#{team_code}/profile.json"
+    response = client.get do |req|
+      req.url (base_url + "teams/#{team_code}/profile.json")
       req.params['api_key'] = ENV['sport_radar_api_key']
     end
     roster = parse(response)[:players]
   end
 
   def team_standings(conference_code, division_code)
-    response = conn.get do |req|
-      req.url 'seasontd/2016/REG/standings.json'
+    response = client.get do |req|
+      req.url (base_url + 'seasontd/2016/REG/standings.json')
       req.params['api_key'] = ENV['sport_radar_api_key']
     end
     standings = parse(response)
