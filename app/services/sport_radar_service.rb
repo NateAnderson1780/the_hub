@@ -6,7 +6,6 @@ class SportRadarService
   def team_injuries(team_code)
     response = client.get do |req|
       req.url (base_url + "league/injuries.json")
-      req.params['api_key'] = ENV['sport_radar_api_key']
     end
     injuries = parse(response)
     injuries[:teams].find do |raw_team|
@@ -63,7 +62,6 @@ class SportRadarService
   def player_draft_info(player_code)
     response = client.get do |req|
       req.url (base_url + "players/#{player_code}/profile.json")
-      # req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:draft]
   end
