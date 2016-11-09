@@ -18,7 +18,15 @@ class RosterPlayer
   end
 
   def height
-    "#{roster_player_data[:height]} inches"
+    "#{feet} ft, #{inches} inches"
+  end
+
+  def feet
+    @roster_player_data[:height] / 12
+  end
+
+  def inches
+    @roster_player_data[:height] % 12
   end
 
   def weight

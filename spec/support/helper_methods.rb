@@ -18,7 +18,18 @@ def login_as_user_with_teams
 
   select("Chicago Bulls", :class => "Chicago Bulls")
   click_button "Add Team"
+end
 
-  expect(current_path).to eq('/teams')
-  expect(page).to have_content("Team: Chicago Bulls")
+def login_as_user_with_players
+  user = create(:user)
+
+  visit '/login'
+  fill_in "Username", with: user.username
+  fill_in "Password", with: user.password
+
+  click_button "Login"
+  click_link "Players"
+
+  select("Jimmy Butler", :class => "Jimmy Butler")
+  click_button "Add Player"
 end
