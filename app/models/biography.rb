@@ -3,6 +3,11 @@ class Biography
     @biography_data = raw_biography
   end
 
+  def self.by_player(player_code)
+    raw_biography = SportRadarService.new.player_biography(player_code)
+    Biography.new(raw_biography)
+  end
+
   def name
     @biography_data[:full_name]
   end

@@ -3,6 +3,11 @@ class DraftInformation
     @draft_info_data = raw_draft_info
   end
 
+  def self.by_player(player_code)
+    raw_draft_info = SportRadarService.new.player_draft_info(player_code)
+    DraftInformation.new(raw_draft_info)
+  end
+
   def team
     Team.find_by(team_code: @draft_info_data[:team_id]).name
   end

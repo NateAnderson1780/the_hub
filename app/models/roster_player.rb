@@ -3,6 +3,12 @@ class RosterPlayer
     @roster_player_data = raw_roster_player
   end
 
+  def self.by_team(team_code)
+    SportRadarService.new.team_roster(team_code).map do |raw_player|
+      RosterPlayer.new(raw_player)
+    end
+  end
+
   def name
     roster_player_data[:full_name]
   end
@@ -12,7 +18,15 @@ class RosterPlayer
   end
 
   def height
-    "#{roster_player_data[:height]} inches"
+    "#{feet} ft, #{inches} inches"
+  end
+
+  def feet
+    @roster_player_data[:height] / 12
+  end
+
+  def inches
+    @roster_player_data[:height] % 12
   end
 
   def weight

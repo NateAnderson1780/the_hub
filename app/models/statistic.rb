@@ -3,6 +3,11 @@ class Statistic
     @statistic_data = raw_statistics
   end
 
+  def self.by_player(player_code)
+    raw_statistics = SportRadarService.new.player_statistics(player_code)
+    Statistic.new(raw_statistics)
+  end
+
   def team
     "#{@statistic_data[:market]} #{@statistic_data[:name]}"
   end
@@ -24,15 +29,15 @@ class Statistic
   end
 
   def field_goal_percentage
-    @statistic_data[:total][:field_goals_pct]
+    (@statistic_data[:total][:field_goals_pct] * 100).round(1)
   end
 
   def three_point_percentage
-    @statistic_data[:total][:three_points_pct]
+    (@statistic_data[:total][:three_points_pct] * 100).round(1)
   end
 
   def free_throw_percentage
-    @statistic_data[:total][:free_throws_pct]
+    (@statistic_data[:total][:free_throws_pct] * 100).round(1)
   end
 
   def rebound_average
