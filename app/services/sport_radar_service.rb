@@ -16,7 +16,6 @@ class SportRadarService
   def team_roster(team_code)
     response = client.get do |req|
       req.url (base_url + "teams/#{team_code}/profile.json")
-      req.params['api_key'] = ENV['sport_radar_api_key']
     end
     roster = parse(response)[:players]
   end
@@ -24,7 +23,6 @@ class SportRadarService
   def team_standings(conference_code, division_code)
     response = client.get do |req|
       req.url (base_url + 'seasontd/2016/REG/standings.json')
-      req.params['api_key'] = ENV['sport_radar_api_key']
     end
     standings = parse(response)
     conference = standings[:conferences].find do |raw_conference|
@@ -38,7 +36,6 @@ class SportRadarService
   def team_schedule(team_code)
     response = client.get do |req|
       req.url (base_url + 'games/2016/REG/schedule.json')
-      req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:games]
   end
@@ -46,7 +43,6 @@ class SportRadarService
   def player_statistics(player_code)
     response = client.get do |req|
       req.url (base_url + "players/#{player_code}/profile.json")
-      req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)[:seasons].first[:teams].first
   end
@@ -54,7 +50,6 @@ class SportRadarService
   def player_biography(player_code)
     response = client.get do |req|
       req.url (base_url + "players/#{player_code}/profile.json")
-      # req.params['api_key'] = ENV['sport_radar_api_key']
     end
     parse(response)
   end
