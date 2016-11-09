@@ -10,7 +10,7 @@ RSpec.describe Statistic, type: :model do
                               three_points_pct: 0.200,
                               free_throws_pct: 0.800},
                       average: {minutes: 35,
-                                point: 25,
+                                points: 25,
                                 rebounds: 8,
                                 assists: 7,
                                 turnovers: 6,
