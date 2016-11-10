@@ -63,4 +63,16 @@ th {
 
 body {
   background-color: #C4842B;
+  min-height:100%;
+}
+
+html{
+	/* This image will be displayed fullscreen */
+	background:url('basketball_sunset.jpg') no-repeat center center;
+
+	/* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;
 }
