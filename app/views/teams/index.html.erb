@@ -9,11 +9,20 @@
   <%= f.submit "Add Team" %>
 <% end %></br></br>
 
-<% @userteams.each do |userteam| %>
-  Team: <%= userteam.name %></br>
-  <%= link_to "Roster", roster_path(userteam.id) %>
-  <%= link_to "Injuries", injury_path(userteam.id) %>
-  <%= link_to "Standings", standings_path(userteam.id) %>
-  <%= link_to "Schedule", schedules_path(userteam.id) %></br></br>
-  <%= link_to "Delete Team", userteam_path(userteam), :method => :delete %></br></br>
-<% end %>
+
+<div class = "row">
+  <% @userteams.each do |userteam| %>
+   <div class = "col-sm-6 col-md-3">
+      <a href = "#" class = "thumbnail">
+         <%= image_tag userteam.image, alt: 'logo' %>
+      </a>
+     <div class="container">
+        <%= link_to "Roster", roster_path(userteam.id) %>
+        <%= link_to "Injuries", injury_path(userteam.id) %>
+        <%= link_to "Standings", standings_path(userteam.id) %>
+        <%= link_to "Schedule", schedules_path(userteam.id) %></br></br>
+        <%= link_to "Delete Team", userteam_path(userteam), :method => :delete %>
+     </div>
+   </div>
+  <% end %>
+</div>
