@@ -9,6 +9,12 @@ class Game
     end.compact
   end
 
+  def self.by_day(time)
+    SportRadarService.new.daily_schedule(time).map do |game|
+      Game.new(game)
+    end
+  end
+
   def venue
     "#{@game_data[:venue][:name]}, #{@game_data[:venue][:city]}, #{@game_data[:venue][:state]}"
   end
