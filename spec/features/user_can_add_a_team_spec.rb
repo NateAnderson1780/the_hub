@@ -15,6 +15,6 @@ RSpec.feature "user can add a team" do
     click_button "Add Team"
 
     expect(current_path).to eq('/teams')
-    expect(page).to have_content("Team: Chicago Bulls")
+    expect(page).to have_content("Delete Team")
   end
 end

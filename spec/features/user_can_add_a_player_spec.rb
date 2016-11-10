@@ -9,12 +9,12 @@ RSpec.feature "user can add a player" do
     click_link "Players"
     expect(current_path).to eq('/players')
 
-    expect(page).not_to have_content("Player: Jimmy Butler")
+    expect(page).not_to have_content("Delete Player")
 
     select("Jimmy Butler", :class => "Jimmy Butler")
     click_button "Add Player"
 
     expect(current_path).to eq('/players')
-    expect(page).to have_content("Player: Jimmy Butler")
+    expect(page).to have_content("Delete Player")
   end
 end

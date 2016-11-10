@@ -21,12 +21,12 @@ RSpec.describe DivisionRank, type: :model do
   end
 
   it "can find standings for a specific team" do
-    VCR.use_cassette "team_standings" do
+    VCR.use_cassette "team_standings2" do
       conference_code = '3960cfac-7361-4b30-bc25-8d393de6f62f'
       division_code = 'f3aaf23a-1ceb-46ef-8fef-9403692e801b'
 
       teams = DivisionRank.by_division(conference_code, division_code)
-      
+
       expect(teams.class).to eq(Array)
     end
   end

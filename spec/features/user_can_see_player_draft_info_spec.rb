@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user can see a players draft info" do
   scenario "they can see the draft info on their player draft info page" do
-    VCR.use_cassette "player_draft_info" do
+    VCR.use_cassette "player_draft_info3" do
       login_as_user_with_players
 
       click_link "Draft Info"

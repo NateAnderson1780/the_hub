@@ -7,10 +7,10 @@ RSpec.feature "user can delete a player" do
     click_link "Players"
     expect(current_path).to eq('/players')
 
-    expect(page).to have_content("Player: Jimmy Butler")
     expect(page).to have_link("Delete Player")
 
     click_link "Delete Player"
-    expect(page).not_to have_content("Player: Jimmy Butler")
+
+    expect(page).not_to have_link("Delete Player")
   end
 end

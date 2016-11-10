@@ -26,7 +26,7 @@ RSpec.describe RosterPlayer, type: :model do
   end
 
   it "can find roster players for a specific team" do
-    VCR.use_cassette "team_roster" do
+    VCR.use_cassette "team_roster2" do
       team_code = '583ec5fd-fb46-11e1-82cb-f4ce4684ea4c'
 
       players = RosterPlayer.by_team(team_code)

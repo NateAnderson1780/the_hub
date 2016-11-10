@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user can see a teams injuries" do
   scenario "they can see injuries on their teams injury page" do
-    VCR.use_cassette "team_injuries" do
+    VCR.use_cassette "team_injuries3" do
       login_as_user_with_teams
 
       click_link "Injuries"

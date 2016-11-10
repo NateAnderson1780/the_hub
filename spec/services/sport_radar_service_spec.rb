@@ -2,18 +2,18 @@ require 'rails_helper'
 
 RSpec.describe SportRadarService do
   it "can get a players statistics" do
-    VCR.use_cassette("player_statistics") do
+    VCR.use_cassette("player_statistics1") do
       player_code = '0e163d44-67a7-4107-9421-5333600166bb'
       stats = SportRadarService.new.player_statistics(player_code)
 
       expect(stats[:market]).to eq("Chicago")
-      expect(stats[:total][:games_played]).to eq(7)
-      expect(stats[:average][:points]).to eq(21.0)
+      expect(stats[:total][:games_played]).to eq(8)
+      expect(stats[:average][:points]).to eq(23.3)
     end
   end
 
   it "can get a players biography" do
-    VCR.use_cassette("player_biography") do
+    VCR.use_cassette("player_biography1") do
       player_code = '0e163d44-67a7-4107-9421-5333600166bb'
       bio = SportRadarService.new.player_biography(player_code)
 
@@ -24,7 +24,7 @@ RSpec.describe SportRadarService do
   end
 
   it "can get a players draft information" do
-    VCR.use_cassette("player_draft_info") do
+    VCR.use_cassette("player_draft_info1") do
       player_code = '0e163d44-67a7-4107-9421-5333600166bb'
       draft_info = SportRadarService.new.player_draft_info(player_code)
 
@@ -35,7 +35,7 @@ RSpec.describe SportRadarService do
   end
 
   it "can get a teams injuries" do
-    VCR.use_cassette("team_injuries") do
+    VCR.use_cassette("team_injuries1") do
       team_code = '583ec5fd-fb46-11e1-82cb-f4ce4684ea4c'
       injuries = SportRadarService.new.team_injuries(team_code)
       injury = injuries.first
@@ -47,7 +47,7 @@ RSpec.describe SportRadarService do
   end
 
   it "can get a teams roster" do
-    VCR.use_cassette("team_roster") do
+    VCR.use_cassette("team_roster1") do
       team_code = '583ec5fd-fb46-11e1-82cb-f4ce4684ea4c'
       players = SportRadarService.new.team_roster(team_code)
       player = players.first
@@ -59,7 +59,7 @@ RSpec.describe SportRadarService do
   end
 
   it "can get a teams standings" do
-    VCR.use_cassette("team_standings") do
+    VCR.use_cassette("team_standings1") do
       conference_code = '3960cfac-7361-4b30-bc25-8d393de6f62f'
       division_code = 'f3aaf23a-1ceb-46ef-8fef-9403692e801b'
       standings = SportRadarService.new.team_standings(conference_code, division_code)
@@ -72,7 +72,7 @@ RSpec.describe SportRadarService do
   end
 
   it "can get a teams schedule" do
-    VCR.use_cassette("team_schedule") do
+    VCR.use_cassette("team_schedule1") do
       team_code = '583ec5fd-fb46-11e1-82cb-f4ce4684ea4c'
       schedule = SportRadarService.new.team_schedule(team_code)
       game = schedule.first

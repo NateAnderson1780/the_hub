@@ -17,7 +17,7 @@ RSpec.describe DraftInformation, type: :model do
   end
 
   it "can find draft info for a specific player" do
-    VCR.use_cassette "player_draft_info" do
+    VCR.use_cassette "player_draft_info2" do
       player_code = '0e163d44-67a7-4107-9421-5333600166bb'
 
       player = DraftInformation.by_player(player_code)
