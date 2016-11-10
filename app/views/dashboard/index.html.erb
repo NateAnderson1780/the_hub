@@ -1,0 +1,7 @@
+<h1>Today's Games (<%= @time.month %>/<%= @time.day %>)</h1>
+
+<% @games.each do |game| %>
+  Venue: <%= game.venue %></br>
+  Home Team: <%= game.home_team %></br>
+  Away Team: <%= game.away_team %></br></br>
+<% end %>

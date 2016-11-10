@@ -40,6 +40,13 @@ class SportRadarService
     parse(response)[:games]
   end
 
+  def daily_schedule(time)
+    response = client.get do |req|
+      req.url (base_url + "games/#{time.year}/#{time.month}/#{time.day}/schedule.json?")
+    end
+    parse(response)[:games]
+  end
+
   def player_statistics(player_code)
     response = client.get do |req|
       req.url (base_url + "players/#{player_code}/profile.json")
