@@ -9,7 +9,22 @@
   <%= f.submit "Add Player" %>
 <% end %></br></br>
 
-<div class="userplayers">
+<div class = "row">
+  <% @userplayers.each do |userplayer| %>
+   <div class = "col-sm-6 col-md-3">
+      <a href = "#" class = "thumbnail">
+         <%= image_tag userplayer.image, alt: 'player' %>
+      </a>
+     <div class="container">
+       <%= link_to "Biography", biography_path(userplayer.id) %>
+       <%= link_to "Statistics", statistics_path(userplayer.id) %>
+       <%= link_to "Draft Info", draft_information_path(userplayer.id) %></br></br>
+       <%= link_to "Delete Player", userplayer_path(userplayer), :method => :delete %></br></br>
+     </div>
+   </div>
+  <% end %>
+</div>
+<!-- <div class="userplayers">
   <% @userplayers.each do |userplayer| %>
     <div class="userplayer col-sm-4">
       <div class="userplayer_wrapper">
