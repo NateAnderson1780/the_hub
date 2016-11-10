@@ -22,7 +22,7 @@
 }
 
 .navbar-default .navbar-brand{
-  color: #00a99d;
+  color: black;
   font-size: 25px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #00a99d;
+  color: black;
   padding-left: 10px;
   font-size: 20px;
 }
@@ -42,6 +42,25 @@
     color: #b29f67;
 }
 
+.thumbnail img {
+  width: 200px;
+  height: 200px;
+}
+
+.thumbnail {
+  display: inline-block;
+}
+
+.roster {
+  table-layout: inherit;
+}
+
+th {
+  width: 100px;
+}
+
+
+
 body {
-  background-color: #FA8320;
+  background-color: #C4842B;
 }
