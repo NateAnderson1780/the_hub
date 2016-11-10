@@ -28,7 +28,7 @@ class Game
   end
 
   def date
-    "#{time.now.month} #{time.now.day}"
+    @game_data[:scheduled][0..9]
   end
 
   private
