@@ -20,6 +20,8 @@ class HomeController < ApplicationController
   end
 end
 
+# This is an explanation for separating instance variables to a presenter class
+
 # view...
 #
 # @presenter.games
