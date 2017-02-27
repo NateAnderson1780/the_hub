@@ -4,3 +4,5 @@ class InjuriesController < ApplicationController
     @injuries = Injury.by_team(@team.team_code)
   end
 end
+
+# may need index for all injuries
