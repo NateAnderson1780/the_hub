@@ -25,4 +25,4 @@ class SessionsController < ApplicationController
   end
 end
 
-# check into twitter omniauth
+
